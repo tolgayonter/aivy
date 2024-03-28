@@ -1,5 +1,7 @@
 import EntryCard from "@/components/EntryCard";
 import NewEntryCard from "@/components/NewEntryCard";
+import Question from "@/components/Question";
+import { analyse } from "@/utils/ai";
 import { getUserByClerkID } from "@/utils/auth";
 import { prisma } from "@/utils/db";
 import Link from "next/link";
@@ -25,6 +27,11 @@ const EntryListPage = async () => {
   return (
     <div className="p-10 bg-zinc-100 h-full">
       <h2 className="text-3xl mb-10">Entries</h2>
+
+      <div className="my-8">
+        <Question />
+      </div>
+
       <div className="grid grid-cols-3 gap-5">
         <NewEntryCard />
         {entries.map((entry) => (
